@@ -2,9 +2,11 @@
   "name": "phuc-molxipi",
   "version": "1.0.0",
   "description": "Backend Nodejs ExpressJs MongooDB JWT",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server.js",
+    "start": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/phuclonghuudong/03_PROJECT/issues"
   },
-  "homepage": "https://github.com/phuclonghuudong/03_PROJECT#readme"
+  "homepage": "https://github.com/phuclonghuudong/03_PROJECT#readme",
+  "dependencies": {
+    "bcrypt": "5.1.1",
+    "cors": "2.8.5",
+    "dotenv": "16.4.5",
+    "express": "4.21.0",
+    "jsonwebtoken": "9.0.2",
+    "mongoose": "8.6.2",
+    "nodemon": "3.1.4"
+  }
 }
