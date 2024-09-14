@@ -15,7 +15,7 @@ app.use(express.json()); // for json
 app.use(express.urlencoded({ extended: true })); // for form data
 
 //khai báo route
-app.use("/v1/api/", routerAPI);
+routerAPI(app);
 
 (async () => {
   try {
