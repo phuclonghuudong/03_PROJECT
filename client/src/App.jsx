@@ -1,8 +1,32 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
+import { routes } from "./routes";
+import DefaultComponent from "./components/DefaultComponent/index";
+
 
 function App() {
-  return <>appp</>;
+  return (
+    <>
+      <Router>
+        <Routes>
+          {routes.map((route) => {
+            const Page = route.page;
+            const Layout = route.isShowHeader ? DefaultComponent : Fragment;
+            return (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={
+                  <Layout>
+                    <Page />
+                  </Layout>
+                }
+              />
+            );
+          })}
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
 export default App;
