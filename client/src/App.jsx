@@ -4,7 +4,7 @@ import DefaultComponent from "./components/DefaultComponent/index";
 
 function App() {
   return (
-    <>
+    <div style={{ background: "#fff" }}>
       <Router>
         <Routes>
           {routes.map((route) => {
@@ -24,7 +24,7 @@ function App() {
           })}
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

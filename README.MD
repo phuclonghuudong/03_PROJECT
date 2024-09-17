@@ -13,4 +13,6 @@ Các bước cài đặt: (chế độ development)
 
 ### Commit
 
-4.  Fix client Header
+4. Fix client Header
+   4.1 Fix input search Header
+   4.2 Fix Button content 03 Header & reponsive header

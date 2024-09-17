@@ -1,10 +1,10 @@
 import React from "react";
-import HeaderComponent from "../HeaderComponent";
+import HeaderComponents from "../HeaderComponents";
 
 const DefaultComponent = ({ children }) => {
   return (
     <div>
-      <HeaderComponent />
+      <HeaderComponents />
       {children}
     </div>
   );
