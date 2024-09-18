@@ -3,9 +3,9 @@ import Slider from "react-slick";
 
 export const WrapperSliderDiv = styled.div`
   border: 0 none;
-        max-width: 100%;
-        height: auto;
-}
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px;
 `;
 export const WrapperSliderStyle = styled(Slider)`
   & .slick-arrow.slick-prev {

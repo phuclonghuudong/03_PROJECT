@@ -16,3 +16,5 @@ Các bước cài đặt: (chế độ development)
 4. Fix client Header
    4.1 Fix input search Header
    4.2 Fix Button content 03 Header & reponsive header
+   4.3 Degisn Menu Navbar Header & Slider Component
+   4.4 Degisn Module Services & Product Type Title pages Home
