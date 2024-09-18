@@ -1,5 +1,37 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+:root {
+  --color: #333e44;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
 body {
   margin: 0;
@@ -13,4 +45,72 @@ body {
 
 html {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.div_content_type_title {
+  margin-bottom: 35px;
+  width: 400px;
+  object-fit: cover;
+  height: 55px;
+  text-align: center;
+  position: relative;
+}
+.container {
+  padding-right: 45px;
+  padding-left: 45px;
+  color: var(--color);
+}
+.container-title-page {
+  background-color: #f5f5f5;
+}
+.hover-text {
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--orange);
+}
+.text:hover {
+  cursor: pointer;
+  color: var(--orange);
+}
+.label-text-input {
+  color: var(--color);
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+.input {
+  min-height: 18px;
+  line-height: 1.5;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: var(--dark);
+  margin-bottom: 15px;
+  border: 1px solid #eaebf3;
+  box-shadow: none;
+  border-radius: 3px;
+  outline: none;
+}
+.content_grid {
+  align-items: center;
+  justify-content: center;
+  display: grid;
+}
+.button-fix {
+  cursor: pointer;
+  background: #e95221;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  text-transform: uppercase;
+  border: 1px solid #e95221;
+  line-height: 42px;
+  width: 100%;
+  height: 45px;
+}
+.button-fix:hover {
+  background-color: #fff;
+  color: #e95221;
 }

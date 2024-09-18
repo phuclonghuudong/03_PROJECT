@@ -15,22 +15,23 @@ import { Wrapper03_div, WrapperContainer03, WrapperDiv, WrapperDivContainer, Wra
 import InputHeader from "./InputHeader";
 import IconButtonHeader from "./IconButtonHeader";
 import ButtonMenuHeader from "./ButtonMenuHeader";
+import { NavLink } from "react-router-dom";
 
 const items = [
   {
     key: "1",
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <NavLink to="/dang-nhap" className="nav-link" exact>
         <TextHeader text="Đăng nhập" />
-      </a>
+      </NavLink>
     ),
   },
   {
     key: "2",
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="">
+      <NavLink to="/dang-ky" className="nav-link" exact>
         <TextHeader text="Đăng ký" />
-      </a>
+      </NavLink>
     ),
   },
 ];
@@ -79,7 +80,9 @@ const HeaderComponents = () => {
       <Col xs={7} sm={5} md={4} lg={4} xl={4}>
         <WrapperContainer03>
           <Wrapper03_div>
-            <IconButtonHeader icon={<ZoomInOutlined />} text="TRA CỨU" />
+            <NavLink to="/kiem-tra-don-hang" style={{ color: "#333e44" }} exact>
+              <IconButtonHeader icon={<ZoomInOutlined />} text="TRA CỨU" />
+            </NavLink>
           </Wrapper03_div>
 
           <Dropdown
