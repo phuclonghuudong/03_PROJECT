@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import { Col, Dropdown, Input, Row } from "antd";
+import { Avatar, Badge, Col, Dropdown, Input, Row } from "antd";
 import {
   HomeOutlined,
   MenuOutlined,
@@ -37,7 +37,7 @@ const items = [
 
 const HeaderComponents = () => {
   return (
-    <Row style={{ height: "80px" }} align={"center"} justify="space-between">
+    <Row style={{ height: "80px", margin: "0 10px" }} align={"center"} justify="space-between">
       <Col xs={4} sm={4} md={4} lg={0} xl={0}>
         <ButtonMenuHeader icon={<MenuOutlined />} />
       </Col>
@@ -97,7 +97,9 @@ const HeaderComponents = () => {
           </Dropdown>
 
           <Wrapper03_div>
-            <IconButtonHeader icon={<ShoppingCartOutlined />} text="Giỏ hàng" />
+            <Badge count={9} offset={[-10, 7]} size="middle">
+              <IconButtonHeader icon={<ShoppingCartOutlined />} text="Giỏ hàng" />
+            </Badge>
           </Wrapper03_div>
         </WrapperContainer03>
       </Col>
