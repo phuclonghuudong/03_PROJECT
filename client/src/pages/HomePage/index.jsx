@@ -1,6 +1,7 @@
 import React from "react";
 import ServicesComponent from "../../components/ServicesComponent";
 import TitleModulesComponent from "../../components/TitleModulesComponent";
+import ContentBannerComponent from "../../components/ContentBannerComponent";
 
 const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ const HomePage = () => {
       <ServicesComponent />
       <div>
         <TitleModulesComponent title="Sản phẩm mới" />
+        <ContentBannerComponent />
       </div>
     </div>
   );

@@ -18,3 +18,4 @@ Các bước cài đặt: (chế độ development)
    4.2 Fix Button content 03 Header & reponsive header
    4.3 Degisn Menu Navbar Header & Slider Component
    4.4 Degisn Module Services & Product Type Title pages Home
+   4.5 Fix Responsive Product Type Title pages Home
