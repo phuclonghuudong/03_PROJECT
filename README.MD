@@ -20,3 +20,4 @@ Các bước cài đặt: (chế độ development)
    4.04 Degisn Module Services & Product Type Title pages Home
    4.05 Fix Responsive Product Type Title pages Home
    4.06 Create Pages SignUp-Login-Forgot Password Pages
+   4.07 Design Page Product-Detail fix Component

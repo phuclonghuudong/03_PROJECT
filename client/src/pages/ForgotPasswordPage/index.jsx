@@ -3,7 +3,7 @@ import TitleModulesComponent from "./../../components/TitleModulesComponent/inde
 import ProgressBarComponent from "./../../components/ProgressBarComponent/index";
 import { Col, Row } from "antd";
 import GroupLabelInputComponent from "../../components/GroupLabelInputComponent";
-import ButtonComponent from "../../components/ButtonComponent";
+import ButtonProductComponent from "../../components/ButtonProductComponent";
 import { NavLink } from "react-router-dom";
 
 const ForgotPasswordPage = () => {
@@ -19,7 +19,9 @@ const ForgotPasswordPage = () => {
       <div>
         <GroupLabelInputComponent placeholder="Email/Số điện thoại" />
         <GroupLabelInputComponent placeholder="Mã Capcha" />
-        <ButtonComponent title="LẤY LẠI MẬT KHẨU" />
+        <div className="layout-center">
+          <ButtonProductComponent title="LẤY LẠI MẬT KHẨU" />
+        </div>
       </div>
       <div style={{ margin: "20px 0", color: "#333e44", textAlign: "right" }}>
         <NavLink to="/dang-nhap" style={{ color: "#333e44" }}>

@@ -1,15 +1,40 @@
 import React from "react";
 import { WrapperDiv } from "./style";
 import { RightOutlined } from "@ant-design/icons";
+import { Col, Row } from "antd";
 
-const TitlePageComponent = () => {
+const TitlePageComponent = ({ title, titleType, titleProduct, color }) => {
   return (
-    <div className="container container-title-page">
-      <WrapperDiv>
-        Trang chủ <RightOutlined style={{ fontSize: "12px" }} />
-        <span className="hover-text"> Kiểm tra đơn hàng</span>
-      </WrapperDiv>
-    </div>
+    <Row className=" container-title-page">
+      <Col xs={0} sm={0} md={0} lg={1} xl={1}></Col>
+      <Col xs={24} sm={24} md={24} lg={22} xl={22}>
+        <div>
+          <WrapperDiv>
+            Trang chủ <RightOutlined style={{ fontSize: "12px", padding: "0 5px" }} />
+            <span className="hover-text">{title}</span>
+            {!titleType ? (
+              ""
+            ) : (
+              <>
+                <RightOutlined style={{ fontSize: "12px", padding: "0 5px" }} />
+                <span className="hover-text">{titleType}</span>
+              </>
+            )}
+            {!titleProduct ? (
+              ""
+            ) : (
+              <>
+                <RightOutlined style={{ fontSize: "12px", padding: "0 5px" }} />
+                <span className="hover-text" style={{ color: `${color ? "orange" : ""}` }}>
+                  {titleProduct}
+                </span>
+              </>
+            )}
+          </WrapperDiv>
+        </div>
+      </Col>
+      <Col xs={0} sm={0} md={0} lg={1} xl={1}></Col>
+    </Row>
   );
 };
 

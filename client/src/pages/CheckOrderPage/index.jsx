@@ -2,19 +2,20 @@ import React from "react";
 import TitlePageComponent from "../../components/TitlePageComponent";
 import TitleHeadComponent from "../../components/TitleHeadComponent";
 import GroupLabelInputComponent from "./../../components/GroupLabelInputComponent/";
-import ButtonComponent from "./../../components/ButtonComponent/index";
-import { styled } from "styled-components";
+import ButtonProductComponent from "./../../components/ButtonProductComponent";
 
 const CheckOrderPage = () => {
   return (
     <div>
-      <TitlePageComponent />
+      <TitlePageComponent title="Kiểm tra đơn hàng" />
       <div className="container">
         <TitleHeadComponent text="Kiểm tra đơn hàng" />
 
         <div style={{ width: "25%" }}>
           <GroupLabelInputComponent label="Mã đơn hàng/ Số điện thoại*" placeholder="Nhập..." />
-          <ButtonComponent title="TRA CỨU ĐƠN HÀNG" />
+          <div className="layout-center">
+            <ButtonProductComponent title="TRA CỨU ĐƠN HÀNG" />
+          </div>
         </div>
       </div>
     </div>

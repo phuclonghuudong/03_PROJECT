@@ -3,7 +3,7 @@ import TitleModulesComponent from "./../../components/TitleModulesComponent/inde
 import ProgressBarComponent from "./../../components/ProgressBarComponent/index";
 import { Col, Row } from "antd";
 import GroupLabelInputComponent from "../../components/GroupLabelInputComponent";
-import ButtonComponent from "../../components/ButtonComponent";
+import ButtonProductComponent from "../../components/ButtonProductComponent";
 import { NavLink } from "react-router-dom";
 
 const SignUpPage = () => {
@@ -27,7 +27,9 @@ const SignUpPage = () => {
         <GroupLabelInputComponent placeholder="Số điện thoại" />
         <GroupLabelInputComponent placeholder="Mật khẩu" />
         <GroupLabelInputComponent placeholder="Nhập lại mật khẩu" />
-        <ButtonComponent title="ĐĂNG KÝ" />
+        <div className="layout-center">
+          <ButtonProductComponent title="ĐĂNG KÝ" />
+        </div>
       </div>
     </Row>
   );
