@@ -1,5 +1,5 @@
 import React from "react";
-import { WrapperDivContainer, WrapperDivSpan, WrapperSpanUppercase } from "./style";
+import { WrapperSpanUppercase } from "./style";
 import { Col, Row } from "antd";
 import { DingtalkCircleFilled, ScheduleFilled, StarFilled, TruckFilled } from "@ant-design/icons";
 
@@ -40,19 +40,37 @@ const ServicesComponent = () => {
       {listItem.map((items) => {
         return (
           <Col xs={24} sm={12} md={12} lg={6} xl={6} style={{ padding: "0 15px", paddingBottom: "15px" }}>
-            <WrapperDivContainer>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span style={{ fontSize: "35px", paddingLeft: "10px" }}>{items.icon}</span>
-                <WrapperDivSpan>
-                  <span>
-                    {items.text01} <WrapperSpanUppercase>{items.textUpperCase01}</WrapperSpanUppercase>
-                  </span>
-                  <span>
-                    {items.text02} <WrapperSpanUppercase>{items.textUpperCase02}</WrapperSpanUppercase>
-                  </span>
-                </WrapperDivSpan>
-              </div>
-            </WrapperDivContainer>
+            <Row
+              style={{
+                border: "1px solid #ededed",
+                padding: "10px",
+                borderRadius: "10px",
+                lineHeight: "1",
+                boxShadow: "0 0 3px rgba(0, 0, 0, 0.2)",
+                color: "#e95211",
+              }}
+            >
+              <Col
+                xs={6}
+                sm={6}
+                md={4}
+                lg={5}
+                xl={5}
+                style={{ alignItems: "center", justifyContent: "center", display: "flex" }}
+              >
+                <span style={{ fontSize: "35px" }}>{items.icon}</span>
+              </Col>
+
+              <Col xs={18} sm={18} md={18} lg={19} xl={19} style={{ paddingLeft: "10px" }}>
+                <Row style={{ paddingBottom: "10px" }}>
+                  {items.text01} <WrapperSpanUppercase>{items.textUpperCase01}</WrapperSpanUppercase>
+                </Row>
+
+                <Row>
+                  {items.text02} <WrapperSpanUppercase>{items.textUpperCase02}</WrapperSpanUppercase>
+                </Row>
+              </Col>
+            </Row>
           </Col>
         );
       })}

@@ -103,10 +103,13 @@ body {
   border-radius: 5px;
   cursor: pointer;
   white-space: nowrap;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
 }
 .button-size:hover {
   background-color: #e95221;
+  border: 1px solid #e95221;
   font-weight: 700;
+  box-shadow: 0 2px 3px 0 #e95221;
 }
 .button-size-disabled {
   height: 30px;
@@ -164,7 +167,11 @@ body {
   font-weight: 700;
   font-size: 16px;
 }
-
+/* product-detail */
+.check-title {
+  font-weight: bolder;
+}
+/* product-detail */
 /* --------------------------------- */
 
 html {
@@ -172,11 +179,11 @@ html {
 }
 .div_content_type_title {
   margin-bottom: 35px;
-  width: 400px;
-  object-fit: cover;
   height: 55px;
+  justify-content: center;
   text-align: center;
-  position: relative;
+  /* position: relative; */
+  width: 100%;
 }
 .container {
   padding-right: 45px;

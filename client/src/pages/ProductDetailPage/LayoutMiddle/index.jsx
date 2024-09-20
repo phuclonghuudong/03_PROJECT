@@ -3,6 +3,7 @@ import React from "react";
 import ButtonSizeComponent from "../../../components/ButtonSizeComponent";
 import GroupButtonQuantity from "../../../components/GroupButtonQuantity";
 import ButtonProductComponent from "../../../components/ButtonProductComponent";
+import ButtonColorComponent from "./../../../components/ButtonColorComponent/index";
 
 const LayoutMiddle = () => {
   const size = [{ name: "S" }, { name: "M" }, { name: "L" }, { name: "XL" }, { name: "2XL" }, { name: "3XL" }];
@@ -26,13 +27,26 @@ const LayoutMiddle = () => {
           <span style={{ color: "#acacac", fontSize: "16px", textDecoration: "line-through" }}>190.000 đ</span>
         </div>
 
-        <div>
-          <span>Chọn size:</span>
+        <div style={{ paddingBottom: "10px" }}>
+          <div className="check-title">Chọn size:</div>
           {size.map((items) => {
             return <ButtonSizeComponent title={items.name} />;
           })}
         </div>
-        <GroupButtonQuantity />
+        <div style={{ paddingBottom: "10px" }}>
+          <div className="check-title">Chọn [Màu sắc]:</div>
+          <Row>
+            <Col xs={11} sm={8} md={8} lg={10} xl={8} style={{ margin: "5px" }}>
+              <ButtonColorComponent />
+            </Col>
+            <Col xs={11} sm={8} md={8} lg={10} xl={8} style={{ margin: "5px" }}>
+              <ButtonColorComponent />
+            </Col>
+          </Row>
+        </div>
+        <div style={{ padding: "10px" }}>
+          <GroupButtonQuantity />
+        </div>
 
         <div style={{ margin: "10px 0" }}>
           <ButtonProductComponent title="Mua ngay" colorBtn="#ffb916" />

@@ -3,6 +3,7 @@ import TitlePageComponent from "./../../components/TitlePageComponent/index";
 import { Col, Row } from "antd";
 import LayoutLeft from "./LayoutLeft";
 import LayoutMiddle from "./LayoutMiddle";
+import LayoutRight from "./LayoutRight";
 
 const ProductDetailPage = () => {
   return (
@@ -22,7 +23,10 @@ const ProductDetailPage = () => {
         <Col xs={24} sm={24} md={14} lg={10} xl={10}>
           <LayoutMiddle />
         </Col>
-        <Col xs={0} sm={0} md={0} lg={6} xl={6} style={{ background: "pink" }}></Col>
+
+        <Col xs={0} sm={0} md={0} lg={6} xl={6} style={{ background: "pink" }}>
+          <LayoutRight />
+        </Col>
       </Row>
       <Row style={{ margin: "20px 0", background: "red", height: "100px" }}></Row>
     </div>
