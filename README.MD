@@ -13,11 +13,16 @@ Các bước cài đặt: (chế độ development)
 
 ### Commit
 
-4. Fix client Header
-   4.01 Fix input search Header
-   4.02 Fix Button content 03 Header & reponsive header
-   4.03 Degisn Menu Navbar Header & Slider Component
-   4.04 Degisn Module Services & Product Type Title pages Home
-   4.05 Fix Responsive Product Type Title pages Home
-   4.06 Create Pages SignUp-Login-Forgot Password Pages
-   4.07 Design Page Product-Detail fix Component
+1. Start Project, setup Server-Client
+2. Set up run start client-server
+3. Create Layout Client
+4. Fix client Header.
+   01 Fix input search Header.
+   02 Fix Button content 03 Header & reponsive header.
+   03 Degisn Menu Navbar Header & Slider Component.
+   04 Degisn Module Services & Product Type Title pages Home.
+   05 Fix Responsive Product Type Title pages Home.
+   06 Create Pages SignUp-Login-Forgot Password Pages.
+   07 Design Page Product-Detail fix Component.
+   08 Fix component page "login-signup-forgot password" & design tt page product details.
+   09 Fix & design tt page product details ->review & commant.
