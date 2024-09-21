@@ -2,6 +2,7 @@ import React from "react";
 import { WrapperDiv } from "./style";
 import { RightOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
+import { NavLink } from "react-router-dom";
 
 const TitlePageComponent = ({ title, titleType, titleProduct, color }) => {
   return (
@@ -10,7 +11,10 @@ const TitlePageComponent = ({ title, titleType, titleProduct, color }) => {
       <Col xs={24} sm={24} md={24} lg={22} xl={22}>
         <div>
           <WrapperDiv>
-            Trang chủ <RightOutlined style={{ fontSize: "12px", padding: "0 5px" }} />
+            <NavLink to="/" className="hover-text" exact>
+              Trang chủ
+            </NavLink>
+            <RightOutlined style={{ fontSize: "12px", padding: "0 5px" }} />
             <span className="hover-text">{title}</span>
             {!titleType ? (
               ""

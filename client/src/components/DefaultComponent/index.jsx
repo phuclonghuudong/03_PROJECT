@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderComponents from "../HeaderComponents";
 import MenuNavbarComponent from "../MenuNavbarComponent";
+import FooterComponent from "../FooterComponent";
 
 const DefaultComponent = ({ children }) => {
   return (
@@ -9,6 +10,7 @@ const DefaultComponent = ({ children }) => {
       <MenuNavbarComponent />
 
       {children}
+      <FooterComponent />
     </div>
   );
 };

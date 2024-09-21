@@ -26,3 +26,4 @@ Các bước cài đặt: (chế độ development)
    07 Design Page Product-Detail fix Component.
    08 Fix component page "login-signup-forgot password" & design tt page product details.
    09 Fix & design tt page product details ->review & commant.
+   10 Fix & design all Pages and component.

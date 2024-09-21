@@ -26,7 +26,6 @@ const ButtonColorComponent = () => {
         style={{
           fontSize: "13px",
           fontWeight: "500",
-          display: "inline-block",
           justifyContent: "center",
           display: "grid",
         }}

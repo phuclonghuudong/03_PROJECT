@@ -9,7 +9,7 @@ const CheckOrderPage = () => {
   return (
     <div>
       <TitlePageComponent title="Kiểm tra đơn hàng" />
-      <div style={{ padding: "0 10px" }}>
+      <div style={{ padding: "0 10px", marginBottom: "20px" }}>
         <TitleHeadComponent text="Kiểm tra đơn hàng" />
 
         <Row>

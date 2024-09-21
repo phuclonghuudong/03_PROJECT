@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const SignUpPage = () => {
   return (
-    <Row style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <Row style={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "20px" }}>
       <Col xs={24} sm={24} md={12} lg={12} xl={12}>
         <div className="div_content_type_title" style={{ margin: "15px 0" }}>
           <TitleModulesComponent title="ĐĂNG KÝ" />

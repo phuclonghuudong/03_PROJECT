@@ -6,6 +6,7 @@ import { DownOutlined } from "@ant-design/icons";
 import CheckOrderPage from "../pages/CheckOrderPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
+import CartPage from "../pages/CartPage";
 
 export const routes = [
   {
@@ -99,7 +100,7 @@ export const routes = [
   {
     path: "/quen-mat-khau",
     icon: "",
-    showHeader: true,
+    showHeader: false,
     title: "Quên mật khẩu",
     page: ForgotPasswordPage,
     isShowHeader: true,
@@ -110,6 +111,14 @@ export const routes = [
     showHeader: true,
     title: "Chi tiết",
     page: ProductDetailPage,
+    isShowHeader: true,
+  },
+  {
+    path: "/gio-hang",
+    icon: "",
+    showHeader: false,
+    title: "Giỏ hàng",
+    page: CartPage,
     isShowHeader: true,
   },
 ];

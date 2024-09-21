@@ -101,7 +101,9 @@ const HeaderComponents = () => {
 
           <Wrapper03_div>
             <Badge count={9} offset={[-10, 7]} size="middle">
-              <IconButtonHeader icon={<ShoppingCartOutlined />} text="Giỏ hàng" />
+              <NavLink to="/gio-hang" style={{ color: "#333e44" }} exact>
+                <IconButtonHeader icon={<ShoppingCartOutlined />} text="Giỏ hàng" />
+              </NavLink>
             </Badge>
           </Wrapper03_div>
         </WrapperContainer03>
