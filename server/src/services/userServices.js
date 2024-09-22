@@ -1,7 +1,57 @@
-const User = require("../models/userModels");
-const { comparePassword } = require("../utils/checkInput");
+const User = require("../models/UserModel");
+const { comparePassword, hashPassword } = require("../utils/checkInput");
 const { access_token } = require("../utils/jwtToken");
 
+const checkExistEmail = async (email) => {
+  return await User.findOne({ email });
+};
+const checkExistPhone = async (phone) => {
+  return await User.findOne({ phone });
+};
+const registerUser = async (data) => {
+  try {
+    const { email, password, phone, name } = data;
+
+    const checkEmail = await checkExistEmail(email);
+    if (checkEmail !== null) {
+      return {
+        EC: "ERR",
+        EM: "Email exists!",
+        DT: "",
+      };
+    }
+    const checkPhone = await checkExistPhone(phone);
+    if (checkPhone !== null) {
+      return {
+        EC: "ERR",
+        EM: "Phone exists!",
+        DT: "",
+      };
+    }
+
+    const hassPass = await hashPassword(password);
+
+    let result = await User.create({
+      name: name,
+      email: email,
+      password: hassPass,
+      phone: phone,
+      isAdmin: false,
+    });
+
+    return {
+      EC: 0,
+      EM: "REGISTER SUCCESS!",
+      DT: result,
+    };
+  } catch (error) {
+    return {
+      EC: "ERR",
+      EM: error,
+      DT: "",
+    };
+  }
+};
 const loginUser = async (data) => {
   try {
     const { email, password } = data;
@@ -31,12 +81,15 @@ const loginUser = async (data) => {
       name: checkUser?.name || checkUser?.email,
     };
     const accessToken = access_token(payload);
-    console.log("access_token", accessToken);
     return {
       EC: 0,
       EM: "LOGIN SUCCESS!",
       DT: {
-        USER: checkUser,
+        USER: {
+          email: checkUser.email,
+          name: checkUser.name,
+          phone: checkUser.phone,
+        },
         ACCESS_TOKEN: accessToken,
       },
     };
@@ -51,4 +104,5 @@ const loginUser = async (data) => {
 
 module.exports = {
   loginUser,
+  registerUser,
 };

@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express"); //commonjs
 const routerAPI = require("./routes/");
 const connection = require("./config/database");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
@@ -10,9 +11,13 @@ const port = process.env.PORT || 3001;
 // config cors
 app.use(cors());
 
+//config body-parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //config req.body
-app.use(express.json()); // for json
-app.use(express.urlencoded({ extended: true })); // for form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //khai báo route
 routerAPI(app);

@@ -21,8 +21,10 @@ const dbState = [
 ];
 
 const connection = async () => {
-  await mongoose.connect(process.env.MONGO_DB_URL);
+  let server = process.env.MONGO_DB_URL_SERVER;
+  await mongoose.connect(`${server}`);
   const state = Number(mongoose.connection.readyState);
-  console.log(dbState.find((f) => f.value === state).label, "to database"); // connected to db
+  console.log(dbState.find((f) => f.value === state).label, `to database`);
+  // connected to db
 };
 module.exports = connection;
