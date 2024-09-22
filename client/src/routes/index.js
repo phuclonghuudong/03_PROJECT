@@ -2,11 +2,12 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "./../pages/ProductPage";
 import LoginPage from "./../pages/LoginPage";
 import SignUpPage from "./../pages/SignUpPage";
-import { DownOutlined } from "@ant-design/icons";
 import CheckOrderPage from "../pages/CheckOrderPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import CartPage from "../pages/CartPage";
+import AccountPage from "./../pages/AccountPage/index";
+import UpdateAccountPage from "../pages/UpdateAccountPage";
 
 export const routes = [
   {
@@ -39,6 +40,22 @@ export const routes = [
     showHeader: false,
     title: "Đăng ký",
     page: SignUpPage,
+    isShowHeader: true,
+  },
+  {
+    path: "/thanh-vien",
+    icon: "",
+    showHeader: false,
+    title: "Thành viên",
+    page: AccountPage,
+    isShowHeader: true,
+  },
+  {
+    path: "/thanh-vien/thong-tin",
+    icon: "",
+    showHeader: false,
+    title: "Cập nhật thông tin",
+    page: UpdateAccountPage,
     isShowHeader: true,
   },
   // {

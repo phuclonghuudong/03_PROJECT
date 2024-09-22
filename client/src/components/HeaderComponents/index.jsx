@@ -34,6 +34,22 @@ const items = [
       </NavLink>
     ),
   },
+  {
+    key: "3",
+    label: (
+      <NavLink to="/thanh-vien" className="nav-link" exact>
+        <TextHeader text="Trang cá nhân" />
+      </NavLink>
+    ),
+  },
+  {
+    key: "4",
+    label: (
+      <NavLink to="/dang-xuat" className="nav-link" exact>
+        <TextHeader text="Thoát" />
+      </NavLink>
+    ),
+  },
 ];
 
 const HeaderComponents = () => {
