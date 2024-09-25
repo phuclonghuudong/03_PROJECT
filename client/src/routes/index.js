@@ -1,7 +1,7 @@
 import HomePage from "../pages/HomePage";
 import ProductPage from "./../pages/ProductPage";
 import LoginPage from "./../pages/LoginPage";
-import SignUpPage from "./../pages/SignUpPage";
+import RegisterPage from "./../pages/RegisterPage";
 import CheckOrderPage from "../pages/CheckOrderPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
@@ -39,7 +39,7 @@ export const routes = [
     icon: "",
     showHeader: false,
     title: "Đăng ký",
-    page: SignUpPage,
+    page: RegisterPage,
     isShowHeader: true,
   },
   {

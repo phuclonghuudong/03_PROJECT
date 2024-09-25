@@ -1,17 +1,22 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
-const access_token = (payload) => {
-  const access = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRE });
+const ACCESS_TOKEN = async (payload) => {
+  const access = await jwt.sign(payload, process.env.ACCESS_TOKEN, { expiresIn: process.env.JWT_EXPIRE_ACCESS });
+  return access;
+};
+const REFRESH_TOKEN = async (payload) => {
+  const access = await jwt.sign(payload, process.env.REFRESH_TOKEN, { expiresIn: process.env.JWT_EXPIRE_REFRESH });
   return access;
 };
 
-const verify_token = (token) => {
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+const VERIFY_TOKEN = async (token) => {
+  const decoded = await jwt.verify(token, process.env.REFRESH_TOKEN);
   return decoded;
 };
 
 module.exports = {
-  access_token,
-  verify_token,
+  ACCESS_TOKEN,
+  REFRESH_TOKEN,
+  VERIFY_TOKEN,
 };

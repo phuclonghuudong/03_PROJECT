@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TitleModulesComponent from "./../../components/TitleModulesComponent/index";
 import ProgressBarComponent from "./../../components/ProgressBarComponent/index";
 import { Col, notification, Row } from "antd";
 import GroupLabelInputComponent from "../../components/GroupLabelInputComponent";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ButtonProductComponent from "../../components/ButtonProductComponent";
 import { isValidEmail } from "../../utils/checkInput";
-import { loginUser } from "../../services/User.Services";
+import * as UserService from "../../services/User.Services";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../redux/authSlice";
+import { jwtDecode } from "jwt-decode";
 
 const LoginPage = () => {
-  const [txtEmail, setTxtEmail] = useState();
-  const [txtPassword, setTxtPassword] = useState();
+  const [txtEmail, setTxtEmail] = useState("");
+  const [txtPassword, setTxtPassword] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const defaultValid = {
     isValidEmail: false,
@@ -51,11 +56,25 @@ const LoginPage = () => {
   const handleLogin = async () => {
     let check = isValidInput();
     if (check === true) {
-      const result = await loginUser(txtEmail, txtPassword);
-      if (result && result?.EC === 0) {
+      const result = await UserService.loginUser(txtEmail, txtPassword);
+
+      if (result?.EC === 0) {
         notification.success({
           message: result?.EM,
         });
+        localStorage.setItem("access_token", result?.DT?.ACCESS_TOKEN);
+
+        if (result?.DT?.ACCESS_TOKEN) {
+          const decoded = jwtDecode(result?.DT?.ACCESS_TOKEN);
+          if (decoded?.id) {
+            // await handleGetDetailUser(decoded?.id, result?.DT?.ACCESS_TOKEN);
+            const getUser = await UserService.getDetailUser(decoded?.id, result?.DT?.ACCESS_TOKEN);
+            if (getUser?.data?.EC === 0) {
+              dispatch(loginSuccess({ USER: getUser?.data?.DT, ACCESS_TOKEN: result?.DT?.ACCESS_TOKEN }));
+            }
+          }
+        }
+        navigate("/");
       } else {
         notification.error({
           message: result?.EM,
@@ -63,6 +82,12 @@ const LoginPage = () => {
       }
     }
   };
+
+  // const handleKeyPressEnter = (event) => {
+  //   if (event.charCode === 13 && event.code === "Enter") {
+  //     handleLogin();
+  //   }
+  // };
 
   return (
     <Row style={{ display: "flex", justifyContent: "center" }}>

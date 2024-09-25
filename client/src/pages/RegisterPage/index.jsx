@@ -8,7 +8,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { isValidEmail, isValidPassword, isValidPhone } from "../../utils/checkInput";
 import { createUser } from "../../services/User.Services";
 
-const SignUpPage = () => {
+const RegisterPage = () => {
   const [txtName, setTxtName] = useState();
   const [txtPhone, setTxtPhone] = useState();
   const [txtEmail, setTxtEmail] = useState();
@@ -185,4 +185,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default RegisterPage;

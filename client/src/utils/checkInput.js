@@ -13,3 +13,12 @@ export const isValidPassword = (password) => {
   var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   return regex.test(password);
 };
+
+export const isJsonString = (data) => {
+  try {
+    JSON.parse(data);
+  } catch (error) {
+    return false;
+  }
+  return true;
+};

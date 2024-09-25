@@ -4,12 +4,21 @@ const routerAPI = require("./routes/");
 const connection = require("./config/database");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const port = process.env.PORT || 3001;
+const client = process.env.REACT_URL;
+const corsOptions = {
+  origin: client, // Change to your frontend's URL
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+};
 
 // config cors
-app.use(cors());
+app.use(cors(corsOptions));
+
+// config cookieParser
+app.use(cookieParser());
 
 //config body-parser
 app.use(bodyParser.json());

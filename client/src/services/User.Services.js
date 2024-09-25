@@ -1,7 +1,7 @@
 import axios from "../setup/axios.customize";
-// import axios from "axios";
+export const axiosJWT = axios.create();
 
-const createUser = (txtName, txtEmail, txtPassword, txtConfirmPassword, txtPhone) => {
+export const createUser = async (txtName, txtEmail, txtPassword, txtConfirmPassword, txtPhone) => {
   const URL_API = "/v1/api/user/register";
   const data = {
     name: txtName,
@@ -10,15 +10,27 @@ const createUser = (txtName, txtEmail, txtPassword, txtConfirmPassword, txtPhone
     confirmPassword: txtConfirmPassword,
     phone: txtPhone,
   };
-  return axios.post(URL_API, data);
+  return await axios.post(URL_API, data);
 };
-const loginUser = (txtEmail, txtPassword) => {
+export const loginUser = async (txtEmail, txtPassword) => {
   const URL_API = "/v1/api/user/login";
   const data = {
     email: txtEmail,
     password: txtPassword,
   };
-  return axios.post(URL_API, data);
+  return await axios.post(URL_API, data);
 };
 
-export { createUser, loginUser };
+export const refreshToken = async () => {
+  const URL_API = "/v1/api/user/refresh_token";
+  return await axios.post(URL_API);
+};
+
+export const getDetailUser = async (data, token) => {
+  const URL_API = `/v1/api/user/detail-user/${data}`;
+  return await axiosJWT.get(URL_API, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+};

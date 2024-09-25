@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import { Avatar, Badge, Col, Dropdown, Input, Row } from "antd";
+import { Badge, Col, Dropdown, Input, Row } from "antd";
 import {
   HomeOutlined,
   MenuOutlined,
@@ -8,7 +8,6 @@ import {
   ShoppingCartOutlined,
   UserOutlined,
   ZoomInOutlined,
-  SearchOutlined,
 } from "@ant-design/icons";
 import TextHeader from "./TextHeader";
 import { Wrapper03_div, WrapperContainer03, WrapperDiv, WrapperDivContainer, WrapperIcon } from "./style";
@@ -16,43 +15,48 @@ import InputHeader from "./InputHeader";
 import IconButtonHeader from "./IconButtonHeader";
 import ButtonMenuHeader from "./ButtonMenuHeader";
 import { NavLink } from "react-router-dom";
-
-const items = [
-  {
-    key: "1",
-    label: (
-      <NavLink to="/dang-nhap" className="nav-link" exact>
-        <TextHeader text="Đăng nhập" />
-      </NavLink>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <NavLink to="/dang-ky" className="nav-link" exact>
-        <TextHeader text="Đăng ký" />
-      </NavLink>
-    ),
-  },
-  {
-    key: "3",
-    label: (
-      <NavLink to="/thanh-vien" className="nav-link" exact>
-        <TextHeader text="Trang cá nhân" />
-      </NavLink>
-    ),
-  },
-  {
-    key: "4",
-    label: (
-      <NavLink to="/dang-xuat" className="nav-link" exact>
-        <TextHeader text="Thoát" />
-      </NavLink>
-    ),
-  },
-];
+import { useSelector } from "react-redux";
 
 const HeaderComponents = () => {
+  const auth = useSelector((state) => state.auth.login);
+
+  const items = !auth?.USER
+    ? [
+        {
+          key: "1",
+          label: (
+            <NavLink to="/dang-nhap" className="nav-link" exact>
+              <TextHeader text="Đăng nhập" />
+            </NavLink>
+          ),
+        },
+        {
+          key: "2",
+          label: (
+            <NavLink to="/dang-ky" className="nav-link" exact>
+              <TextHeader text="Đăng ký" />
+            </NavLink>
+          ),
+        },
+      ]
+    : [
+        {
+          key: "1",
+          label: (
+            <NavLink to="/thanh-vien" className="nav-link" exact>
+              <TextHeader text="Trang cá nhân" />
+            </NavLink>
+          ),
+        },
+        {
+          key: "2",
+          label: (
+            <NavLink to="/dang-xuat" className="nav-link" exact>
+              <TextHeader text="Thoát" />
+            </NavLink>
+          ),
+        },
+      ];
   return (
     <Row style={{ height: "80px", margin: "0 10px" }} align={"center"} justify="space-between">
       <Col xs={4} sm={4} md={4} lg={0} xl={0}>

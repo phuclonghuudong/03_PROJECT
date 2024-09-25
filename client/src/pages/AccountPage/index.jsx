@@ -1,9 +1,10 @@
 import React from "react";
 import { Col, Row, Table } from "antd";
-import { EnvironmentFilled, PhoneFilled, UserOutlined } from "@ant-design/icons";
+import { DingdingOutlined, EnvironmentFilled, PhoneFilled, UserOutlined } from "@ant-design/icons";
 import { Span, Title, TitleColor, TitleContent, TitleP, TitlePage } from "./style";
 import ButtonProductComponent from "./../../components/ButtonProductComponent/index";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const columns = [
   {
@@ -38,12 +39,14 @@ const data = [
   },
 ];
 const AccountPage = () => {
+  const auth = useSelector((state) => state.auth.login);
+
   return (
     <div style={{ margin: "10px 10px 30px 10px" }}>
       <Row style={{ display: "grid" }}>
         <TitlePage>Thông tin tài khoản</TitlePage>
         <span style={{ fontStyle: "italic", display: "flex" }}>
-          Xin chào, <TitleColor>Guest</TitleColor>{" "}
+          Xin chào, <TitleColor> {auth?.USER?.name}</TitleColor>{" "}
         </span>
       </Row>
 
@@ -55,7 +58,14 @@ const AccountPage = () => {
               <UserOutlined />
             </TitleColor>{" "}
             <Span>Họ tên:</Span>
-            <TitleP>phuc</TitleP>
+            <TitleP>{auth?.USER?.name}</TitleP>
+          </Title>
+          <Title>
+            <TitleColor>
+              <DingdingOutlined />
+            </TitleColor>{" "}
+            <Span>Email:</Span>
+            <TitleP>{auth?.USER?.email}</TitleP>
           </Title>
 
           <Title>
@@ -63,7 +73,7 @@ const AccountPage = () => {
               <PhoneFilled />
             </TitleColor>{" "}
             <Span>Số ĐT:</Span>
-            <TitleP>0347781024</TitleP>
+            <TitleP> {auth?.USER?.phone}</TitleP>
           </Title>
 
           <Title>

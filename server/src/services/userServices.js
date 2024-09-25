@@ -1,6 +1,6 @@
 const User = require("../models/UserModel");
 const { comparePassword, hashPassword } = require("../utils/checkInput");
-const { access_token } = require("../utils/jwtToken");
+const { ACCESS_TOKEN, REFRESH_TOKEN, VERIFY_TOKEN } = require("../utils/jwtToken");
 
 const checkExistEmail = async (email) => {
   return await User.findOne({ email });
@@ -42,7 +42,7 @@ const registerUser = async (data) => {
     return {
       EC: 0,
       EM: "REGISTER SUCCESS!",
-      DT: result,
+      DT: "",
     };
   } catch (error) {
     return {
@@ -78,9 +78,12 @@ const loginUser = async (data) => {
     const payload = {
       id: checkUser?._id,
       email: checkUser?.email,
-      name: checkUser?.name || checkUser?.email,
+      name: checkUser?.name,
+      phone: checkUser?.phone,
+      isAdmin: checkUser?.isAdmin,
     };
-    const accessToken = access_token(payload);
+    const accessToken = await ACCESS_TOKEN(payload);
+    const refreshToken = await REFRESH_TOKEN(payload);
     return {
       EC: 0,
       EM: "LOGIN SUCCESS!",
@@ -89,9 +92,65 @@ const loginUser = async (data) => {
           email: checkUser.email,
           name: checkUser.name,
           phone: checkUser.phone,
+          isAdmin: checkUser.isAdmin,
         },
         ACCESS_TOKEN: accessToken,
+        REFRESH_TOKEN: refreshToken,
       },
+    };
+  } catch (error) {
+    return {
+      EC: "ERR",
+      EM: error,
+      DT: "",
+    };
+  }
+};
+const refreshTokenUser = async (data) => {
+  try {
+    const result = await VERIFY_TOKEN(data.refresh_token);
+
+    const payload = {
+      id: result?._id,
+      email: result?.email,
+      name: result?.name,
+      phone: result?.phone,
+      isAdmin: result?.isAdmin,
+    };
+    const accessToken = await ACCESS_TOKEN(payload);
+    const refreshToken = await REFRESH_TOKEN(payload);
+
+    return {
+      EC: 0,
+      EM: "REFRESH TOKEN SUCCESS!",
+      DT: {
+        ACCESS_TOKEN: accessToken,
+        REFRESH_TOKEN: refreshToken,
+      },
+    };
+  } catch (error) {
+    return {
+      EC: "ERR",
+      EM: error,
+      DT: "",
+    };
+  }
+};
+const getDetailUser = async (data) => {
+  try {
+    const result = await User.findOne({ _id: data }).select("-password");
+    if (!result) {
+      return {
+        EC: "ERR",
+        EM: "ERROR",
+        DT: "",
+      };
+    }
+
+    return {
+      EC: 0,
+      EM: "SUCCESS",
+      DT: result,
     };
   } catch (error) {
     return {
@@ -105,4 +164,6 @@ const loginUser = async (data) => {
 module.exports = {
   loginUser,
   registerUser,
+  refreshTokenUser,
+  getDetailUser,
 };

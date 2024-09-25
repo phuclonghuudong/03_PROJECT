@@ -21,10 +21,15 @@ const isValidPhone = async (phone) => {
   const check = /((09|03|07|08|05)+([0-9]{8})\b)/g;
   return await check.test(phone);
 };
+const isValidPassword = async (password) => {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return await regex.test(password);
+};
 
 module.exports = {
   hashPassword,
   comparePassword,
   isValidEmail,
   isValidPhone,
+  isValidPassword,
 };

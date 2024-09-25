@@ -10,7 +10,7 @@ const MenuNavbarComponent = () => {
       <WrapperContainer>
         {routes.map((items) => {
           return items.showHeader === true ? (
-            <WrapperDiv>
+            <WrapperDiv key={items}>
               <NavLink to={items?.path} className="nav-link" exact>
                 <WrapperText>{items?.title}</WrapperText>
               </NavLink>
