@@ -16,5 +16,9 @@ Các bước cài đặt: (chế độ development)
 1. Start Project, setup Server-Client
 2. Set up run start client-server
 3. Create Layout Client
+   <<<<<<< HEAD
 4. Fix client Header: 01. Fix input search Header. 02. Fix Button content 03 Header & reponsive header. 03. Degisn Menu Navbar Header & Slider Component. 04. Degisn Module Services & Product Type Title pages Home. 05. Fix Responsive Product Type Title pages Home. 06. Create Pages SignUp-Login-Forgot Password Pages. 07. Design Page Product-Detail fix Component. 08. Fix component page "login-signup-forgot password" & design tt page product details. 09. Fix & design tt page product details ->review & commant. 10. Fix & design all Pages and component.
-5. Write API client-server: 01. Write connect API login-register Pages. 02. Write Design Page Account & Update Account. 03. Fix API refresh token client-server and F5 web pages, show account user
+5. # Write API client-server: 01. Write connect API login-register Pages. 02. Write Design Page Account & Update Account. 03. Fix API refresh token client-server and F5 web pages, show account user
+6. Fix client Header: 01. Fix input search Header. 02. Fix Button content 03 Header & reponsive header. 03. Degisn Menu Navbar Header & Slider Component. 04. Degisn Module Services & Product Type Title pages Home. 05. Fix Responsive Product Type Title pages Home. 06. Create Pages SignUp-Login-Forgot Password Pages. 07. Design Page Product-Detail fix Component. 08. Fix component page "login-signup-forgot password" & design tt page product details. 09. Fix & design tt page product details ->review & commant. 10. Fix & design all Pages and component.
+7. Write API client-server: 01. Write connect API login-register Pages.
+   > > > > > > > ac59c4f0102d7d9f934423719c768dc9abdf522c
