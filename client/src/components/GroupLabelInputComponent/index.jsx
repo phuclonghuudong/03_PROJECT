@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 
-const GroupLabelInputComponent = ({ label, placeholder, value, onChange, isShow, typeInput }) => {
+const GroupLabelInputComponent = ({ label, placeholder, value, onChange, isShow, typeInput, disabled }) => {
+  //  placeholder
+  // value
+  // onChange={(e) => setTxtPassword(e.target.value)}
+  // isShow: check condition
+  // typeInput: type false:input or true:password
   const [showPass, setShowPass] = useState(false);
 
   const handleShowPassword = () => {
@@ -34,6 +39,7 @@ const GroupLabelInputComponent = ({ label, placeholder, value, onChange, isShow,
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        disabled={disabled ? true : false}
       />
     </div>
   );

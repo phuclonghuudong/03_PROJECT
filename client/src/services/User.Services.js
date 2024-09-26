@@ -25,6 +25,10 @@ export const refreshToken = async () => {
   const URL_API = "/v1/api/user/refresh_token";
   return await axios.post(URL_API);
 };
+export const logoutUser = async () => {
+  const URL_API = "/v1/api/user/logout";
+  return await axios.get(URL_API);
+};
 
 export const getDetailUser = async (data, token) => {
   const URL_API = `/v1/api/user/detail-user/${data}`;

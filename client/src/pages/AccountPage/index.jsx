@@ -81,11 +81,11 @@ const AccountPage = () => {
               <EnvironmentFilled />
             </TitleColor>{" "}
             <Span>Địa chỉ:</Span>
-            <TitleP>Long An</TitleP>
+            <TitleP>{auth?.USER?.address}</TitleP>
           </Title>
 
           <div>
-            <NavLink to="/thanh-vien/thong-tin" className="nav-link" exact>
+            <NavLink to="/thanh-vien/thong-tin">
               <ButtonProductComponent title="Sửa thông tin" />
             </NavLink>
           </div>

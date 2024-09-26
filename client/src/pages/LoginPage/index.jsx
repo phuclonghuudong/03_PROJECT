@@ -16,6 +16,7 @@ const LoginPage = () => {
   const [txtPassword, setTxtPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   const defaultValid = {
     isValidEmail: false,
@@ -54,6 +55,7 @@ const LoginPage = () => {
   };
 
   const handleLogin = async () => {
+    setLoading(true);
     let check = isValidInput();
     if (check === true) {
       const result = await UserService.loginUser(txtEmail, txtPassword);
@@ -81,6 +83,7 @@ const LoginPage = () => {
         });
       }
     }
+    setLoading(false);
   };
 
   // const handleKeyPressEnter = (event) => {
@@ -116,7 +119,7 @@ const LoginPage = () => {
                 typeInput={true}
               />
               <div className="layout-center">
-                <ButtonProductComponent title="ĐĂNG NHẬP" onClick={handleLogin} />
+                <ButtonProductComponent spinning={loading} title="ĐĂNG NHẬP" onClick={handleLogin} />
               </div>
             </div>
           </Col>

@@ -120,8 +120,8 @@ const logoutUser = async (req, res) => {
   res.clearCookie("refresh_token");
 
   return res.status(200).json({
-    EC: result.EC,
-    EM: result.EM,
+    EC: 0,
+    EM: "Đăng xuất thành công",
     DT: "",
   });
 };

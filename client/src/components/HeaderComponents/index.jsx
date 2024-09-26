@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
-import { Badge, Col, Dropdown, Input, Row } from "antd";
+import { Badge, Col, Dropdown, Input, notification, Row, Spin } from "antd";
 import {
   HomeOutlined,
   MenuOutlined,
@@ -14,11 +14,16 @@ import { Wrapper03_div, WrapperContainer03, WrapperDiv, WrapperDivContainer, Wra
 import InputHeader from "./InputHeader";
 import IconButtonHeader from "./IconButtonHeader";
 import ButtonMenuHeader from "./ButtonMenuHeader";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import * as UserService from "../../services/User.Services";
+import { logoutUser } from "../../redux/authSlice";
 
 const HeaderComponents = () => {
   const auth = useSelector((state) => state.auth.login);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const items = !auth?.USER
     ? [
@@ -51,12 +56,32 @@ const HeaderComponents = () => {
         {
           key: "2",
           label: (
-            <NavLink to="/dang-xuat" className="nav-link" exact>
-              <TextHeader text="Thoát" />
-            </NavLink>
+            // <NavLink to="" className="nav-link" exact>
+            <div onClick={() => handleLogOut()}>
+              <TextHeader text="Đăng xuất" />
+            </div>
+            // </NavLink>
           ),
         },
       ];
+
+  const handleLogOut = async () => {
+    setLoading(true);
+
+    const result = await UserService.logoutUser();
+    if (result?.EC === 0) {
+      dispatch(logoutUser());
+      notification.success({
+        message: result?.EM,
+      });
+      navigate("/dang-nhap");
+    } else {
+      notification.error({
+        message: result?.EM,
+      });
+    }
+    setLoading(false);
+  };
   return (
     <Row style={{ height: "80px", margin: "0 10px" }} align={"center"} justify="space-between">
       <Col xs={4} sm={4} md={4} lg={0} xl={0}>
@@ -115,7 +140,9 @@ const HeaderComponents = () => {
             }}
           >
             <Wrapper03_div>
-              <IconButtonHeader icon={<UserOutlined />} text="Tài khoản" />
+              <Spin spinning={loading} size="small">
+                <IconButtonHeader icon={<UserOutlined />} text="Tài khoản" />
+              </Spin>
             </Wrapper03_div>
           </Dropdown>
 

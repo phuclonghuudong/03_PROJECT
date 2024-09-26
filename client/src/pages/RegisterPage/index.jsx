@@ -14,6 +14,7 @@ const RegisterPage = () => {
   const [txtEmail, setTxtEmail] = useState();
   const [txtPassword, setTxtPassword] = useState();
   const [txtConfirmPassword, setTxtConfirmPassword] = useState();
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -107,6 +108,7 @@ const RegisterPage = () => {
     return true;
   };
   const handleRegister = async () => {
+    setLoading(true);
     let check = isValidInputs();
     if (check === true) {
       const result = await createUser(txtName, txtEmail, txtPassword, txtConfirmPassword, txtPhone);
@@ -122,6 +124,7 @@ const RegisterPage = () => {
         });
       }
     }
+    setLoading(false);
   };
 
   return (
@@ -176,7 +179,7 @@ const RegisterPage = () => {
               typeInput={true}
             />
             <div className="layout-center">
-              <ButtonProductComponent title="ĐĂNG KÝ" onClick={handleRegister} />
+              <ButtonProductComponent spinning={loading} title="ĐĂNG KÝ" onClick={handleRegister} />
             </div>
           </div>
         </Col>
